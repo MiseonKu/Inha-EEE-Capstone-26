@@ -1,0 +1,26 @@
+﻿{
+    "metadata":  {
+                     "frame":  "tracker_vertical_home_relative_vive_frame",
+                     "unit":  {
+                                  "position":  "mm",
+                                  "angle":  "deg and rad",
+                                  "error":  "mm"
+                              },
+                     "synthetic_only":  true,
+                     "physical_claim":  false,
+                     "note":  "Optimizer outputs are model-predicted candidates only. They are not physical robot validation results."
+                 },
+    "rows_processed":  881,
+    "original_label_target_error_mm":  {
+                                           "meaning":  "3D distance between original measured Vive label p_vive_x/y/z and target p_target_x/y/z in the input dataset.",
+                                           "mean":  223.599758,
+                                           "min":  9.483534,
+                                           "max":  492.485892
+                                       },
+    "best_predicted_error_mm":  {
+                                    "meaning":  "3D distance between optimizer-selected model prediction pred_x/y/z and target p_target_x/y/z. This is synthetic/model-only and not a physical measured error.",
+                                    "mean":  95.89921,
+                                    "min":  0.372282,
+                                    "max":  283.175669
+                                }
+}

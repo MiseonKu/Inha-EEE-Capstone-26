@@ -1,0 +1,24 @@
+workspace_mode: forward_trimmed_hemisphere
+frame: base_link
+center_m: [0.0, 0.0, 0.0]
+forward_axis: [1.0, 0.0, 0.0]
+pilot_azimuth_limit_deg: [-30.0, 30.0]
+main_azimuth_limit_deg: [-45.0, 45.0]
+pilot_target_count: 50
+pilot_repeats: 3
+seed: 202
+candidate_count: 20000
+q_ranges_deg:
+  q1: [-30.0, 30.0]
+  q2: [35.0, 110.0]
+  q3: [-130.0, -20.0]
+basic_pose_rad:
+  q1: 0.0
+  q2: 1.5707963267948966
+  q3: -1.5707963267948966
+bins:
+  azimuth: 3
+  radial: 4
+  height: 4
+  posture: 3
+  bending_proxy: 3

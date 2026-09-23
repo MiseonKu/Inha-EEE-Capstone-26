@@ -1,0 +1,234 @@
+{
+  "schema_version": "clean_dataset_2link_v1_kabsch_v1",
+  "created_at_utc": "2026-05-25T15:08:43+00:00",
+  "source_root": "data/source_processed/2link_synthetic",
+  "source_roots": [
+    "data/source_processed/2link_synthetic"
+  ],
+  "output_root": "data/processed/clean_dataset_2link_v1",
+  "dataset_csv": "data/processed/clean_dataset_2link_v1/dataset.csv",
+  "build_script": "data/build_clean_dataset_2link_v1.py",
+  "row_policy": "one row per synthetic settled target from 2link_test-260525-1",
+  "row_filter": {
+    "target_id_prefix": "SYNRAW",
+    "quality_flags": "synthetic_nonlinear_interp",
+    "tracker_valid_ratio_min": 0.99,
+    "label_sample_count_positive": true,
+    "requires_target_features": true,
+    "requires_encoder_features": true,
+    "requires_raw_label": true
+  },
+  "coordinate_policy": {
+    "position_unit": "mm",
+    "target_source": "synthetic_only_target_plan_5000.csv target_x_mm,target_y_mm,target_z_mm",
+    "raw_tracker_label_source": "synthetic_only_supervised_samples_5000.csv label_window_mean_*_mm_relative",
+    "final_label_columns": [
+      "p_vive_x_mm",
+      "p_vive_y_mm",
+      "p_vive_z_mm"
+    ],
+    "label_coordinate_frame": "kabsch_aligned_2link_target_model_fk_frame",
+    "frame_alignment_name": "kabsch_rigid_label_to_target_frame_v1",
+    "frame_alignment_fit_scope": "all clean rows in data/source_processed/2link_synthetic",
+    "frame_alignment": {
+      "fit_rows": 5000,
+      "rotation_matrix": [
+        [
+          -0.39393933034894985,
+          0.6086825339601905,
+          0.6887070326750139
+        ],
+        [
+          -0.8544589343881192,
+          0.033585519696840746,
+          -0.5184321964452181
+        ],
+        [
+          -0.33869120663008134,
+          -0.7927027095440602,
+          0.5068635722094892
+        ]
+      ],
+      "translation_mm": [
+        53.12460423955176,
+        488.72250720266356,
+        60.87807216192084
+      ],
+      "source_centroid_mm": [
+        434.2778962195686,
+        -260.51028783459395,
+        205.76714324411725
+      ],
+      "target_centroid_mm": [
+        -134.80932285872453,
+        2.224193338972824,
+        224.59504777718246
+      ],
+      "determinant": 0.9999999999999998,
+      "reflection_corrected": false,
+      "singular_values": [
+        48392738.873548396,
+        45783559.99500427,
+        10460768.868262084
+      ],
+      "rmse_3d_mm": 51.46633809103575,
+      "axis_rmse_mm": {
+        "x": 21.78589208420886,
+        "y": 27.713244202682358,
+        "z": 37.49846608007447
+      },
+      "residual_norm_mm": {
+        "min": 2.0671478675427384,
+        "mean": 46.72633831033934,
+        "median": 44.40629923928617,
+        "max": 109.90705113659769
+      }
+    },
+    "centroid_shift_applied": true,
+    "raw_label_preserved": true,
+    "raw_label_columns": [
+      "p_tracker_relative_x_mm",
+      "p_tracker_relative_y_mm",
+      "p_tracker_relative_z_mm"
+    ],
+    "synthetic_label": true,
+    "robot_base_calibrated": false,
+    "tracker_to_base_calibrated": false,
+    "calibration_status": "SYNTHETIC_FRAME_REGISTERED"
+  },
+  "feature_columns": [
+    "q1_cmd_deg",
+    "q2_cmd_deg",
+    "q3_cmd_deg",
+    "q1_encoder_deg",
+    "q2_encoder_deg",
+    "q3_encoder_deg",
+    "p_target_x_mm",
+    "p_target_y_mm",
+    "p_target_z_mm"
+  ],
+  "label_columns": [
+    "p_vive_x_mm",
+    "p_vive_y_mm",
+    "p_vive_z_mm"
+  ],
+  "metadata_columns": [
+    "source_group",
+    "source_session",
+    "session_id",
+    "target_id",
+    "sample_id",
+    "planned_order_index",
+    "timestamp_utc",
+    "settle_time_s",
+    "settle_start_s",
+    "settle_end_s",
+    "sample_count",
+    "kinematic_model_version"
+  ],
+  "raw_label_columns": [
+    "p_tracker_relative_x_mm",
+    "p_tracker_relative_y_mm",
+    "p_tracker_relative_z_mm"
+  ],
+  "frame_diagnostic_columns": [
+    "target_label_residual_x_mm",
+    "target_label_residual_y_mm",
+    "target_label_residual_z_mm",
+    "target_label_residual_norm_mm"
+  ],
+  "quality_columns": [
+    "quality_flags",
+    "tracker_valid_ratio",
+    "label_window_std_mm",
+    "label_window_max_span_mm",
+    "label_sample_count",
+    "synthetic_label"
+  ],
+  "total_clean_rows": 5000,
+  "total_supervised_rows": 5000,
+  "total_rejected_rows": 0,
+  "session_summaries": [
+    {
+      "source_group": "2link_test-260525-1",
+      "source_root": "data/source_processed/2link_synthetic",
+      "source_session": "rigid3_20260525_125412Z_2linkik_1000t_synthetic_only_nonlinear5000",
+      "target_plan_csv": "data/source_processed/2link_synthetic/synthetic_only_target_plan_5000.csv",
+      "supervised_samples_csv": "data/source_processed/2link_synthetic/synthetic_only_supervised_samples_5000.csv",
+      "target_plan_rows_total": 5000,
+      "supervised_rows_total": 5000,
+      "target_feature_SYNRAW_rows": 5000,
+      "clean_rows_added": 5000,
+      "rejected_rows_total": 0,
+      "rejected_by_reason": {},
+      "excluded_target_ids_by_reason": {},
+      "quality_flags_required": "synthetic_nonlinear_interp",
+      "min_tracker_valid_ratio": 0.99,
+      "synthetic_label": true,
+      "frame_alignment": {
+        "fit_rows": 5000,
+        "rotation_matrix": [
+          [
+            -0.39393933034894985,
+            0.6086825339601905,
+            0.6887070326750139
+          ],
+          [
+            -0.8544589343881192,
+            0.033585519696840746,
+            -0.5184321964452181
+          ],
+          [
+            -0.33869120663008134,
+            -0.7927027095440602,
+            0.5068635722094892
+          ]
+        ],
+        "translation_mm": [
+          53.12460423955176,
+          488.72250720266356,
+          60.87807216192084
+        ],
+        "source_centroid_mm": [
+          434.2778962195686,
+          -260.51028783459395,
+          205.76714324411725
+        ],
+        "target_centroid_mm": [
+          -134.80932285872453,
+          2.224193338972824,
+          224.59504777718246
+        ],
+        "determinant": 0.9999999999999998,
+        "reflection_corrected": false,
+        "singular_values": [
+          48392738.873548396,
+          45783559.99500427,
+          10460768.868262084
+        ],
+        "rmse_3d_mm": 51.46633809103575,
+        "axis_rmse_mm": {
+          "x": 21.78589208420886,
+          "y": 27.713244202682358,
+          "z": 37.49846608007447
+        },
+        "residual_norm_mm": {
+          "min": 2.0671478675427384,
+          "mean": 46.72633831033934,
+          "median": 44.40629923928617,
+          "max": 109.90705113659769
+        }
+      }
+    }
+  ],
+  "source_counts_by_source_group": {
+    "2link_test-260525-1": {
+      "target_plan_rows": 5000,
+      "supervised_rows": 5000,
+      "target_feature_SYNRAW_rows": 5000,
+      "clean_rows": 5000,
+      "rejected_rows": 0
+    }
+  },
+  "submission_reproduction_status": "runnable from included source_processed/2link_synthetic using data/build_clean_dataset_2link_v1.py"
+}

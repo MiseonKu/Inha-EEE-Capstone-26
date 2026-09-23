@@ -1,0 +1,47 @@
+{
+  "script": "ml/final_model_code/evaluate_2link_density_aware_local_krr.py",
+  "run_name": "20260601_2link_density_aware_local_krr_50seed",
+  "created_at": "2026-06-01",
+  "gpu_status": {
+    "device_used": "cuda",
+    "cuda_device_name": "NVIDIA GeForce RTX 2070 SUPER"
+  },
+  "dataset": {
+    "dataset_root": "data/processed/clean_dataset_2link_v1",
+    "rows": 5000,
+    "source_counts": {
+      "2link_test-260525-1": 5000
+    },
+    "synthetic_label": true,
+    "coordinate_frame": "kabsch_aligned_2link_target_model_fk_frame"
+  },
+  "args": {
+    "dataset_root": "data/processed/clean_dataset_2link_v1",
+    "output_root": "ml/final_results/final_runs/2link_density_aware_local_krr_50seed",
+    "seeds": "0-49",
+    "split_mode": "random",
+    "model_name": "density_aware_local_krr"
+  },
+  "selected_params": {
+    "alpha": 0.003,
+    "gamma": 0.09999999999999998,
+    "k": 20,
+    "bandwidth_scale": 0.75,
+    "shrink": 1.0
+  },
+  "outputs": {
+    "metrics": "ml/final_results/final_runs/2link_density_aware_local_krr_50seed/seed_split_metrics.csv",
+    "predictions": "ml/final_results/final_runs/2link_density_aware_local_krr_50seed/test_predictions.csv"
+  },
+  "best_test_summary": {
+    "model_name": "density_aware_local_krr",
+    "split": "test",
+    "mean_3d_error_mm_mean": 0.710079233266479,
+    "median_3d_error_mm_mean": 0.5193152366702537,
+    "p90_3d_error_mm_mean": 1.3572793839789294,
+    "p95_3d_error_mm_mean": 1.8215466201838642,
+    "max_3d_error_mm_mean": 7.60524970051167,
+    "pass_2mm_rate_mean": 0.96
+  },
+  "source_summary_manifest": "Original run_manifest.json stored aggregate hyperparameter and metric summary only; this repository manifest adds script, dataset, output, and privacy-safe provenance fields."
+}

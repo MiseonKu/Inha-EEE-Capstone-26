@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-06-01T04:14:34",
+  "device": "NVIDIA GeForce RTX 2070 SUPER",
+  "dataset_root": "data/processed/clean_dataset_2link_v1",
+  "seed": 0,
+  "targets": 10,
+  "candidates": 5000,
+  "params": {
+    "alpha": 0.003,
+    "gamma": 0.1,
+    "k": 20,
+    "bandwidth_scale": 0.75,
+    "shrink": 1.0
+  },
+  "mean_best_predicted_error_mm": 9.239013958975224,
+  "median_best_predicted_error_mm": 9.97285219167712,
+  "max_best_predicted_error_mm": 13.723322083207334,
+  "pass_2mm_rate": 0.0
+}

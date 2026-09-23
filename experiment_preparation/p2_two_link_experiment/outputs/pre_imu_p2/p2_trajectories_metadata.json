@@ -1,0 +1,18 @@
+{
+  "coordinate_frame": "base_link",
+  "csv_sha256": "ea02ce033874f1ce6564e2ae7cd59e6ddce67cbebf018f67ef120afff4e5fd15",
+  "geometry": {
+    "L1_effective_m": 0.2996,
+    "L2_effective_m": 0.29945,
+    "link1_flexible_bar_length_m": 0.233,
+    "link2_flexible_bar_length_m": 0.215,
+    "material_preset": "TPU95A_40x12_wall4_topbottom4_infill15_honeycomb"
+  },
+  "label_policy": "trajectory contains commanded/reference motion only; Vive Tracker settled position is label",
+  "row_count": 41850,
+  "stage": "P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL",
+  "target_count": 50,
+  "target_generation_version": "p2_forward_targets_v1",
+  "trajectory_generation_version": "p2_minimum_jerk_v1",
+  "trial_count": 150
+}

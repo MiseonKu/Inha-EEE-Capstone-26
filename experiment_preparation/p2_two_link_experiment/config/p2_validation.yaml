@@ -1,0 +1,17 @@
+expected_columns:
+  tracker_origin:
+    x: feature_p_target_tracker_origin_x_mm
+    y: feature_p_target_tracker_origin_y_mm
+    z: feature_p_target_tracker_origin_z_mm
+  base:
+    x: feature_p_target_base_x_mm
+    y: feature_p_target_base_y_mm
+    z: feature_p_target_base_z_mm
+actual_columns:
+  tracker_relative:
+    x: label_tracker_x_mm_relative
+    y: label_tracker_y_mm_relative
+    z: label_tracker_z_mm_relative
+alignment_threshold_s: 0.2
+min_samples_per_target: 3
+bootstrap: 1000

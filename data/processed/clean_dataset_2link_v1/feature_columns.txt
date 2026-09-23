@@ -1,0 +1,9 @@
+q1_cmd_deg
+q2_cmd_deg
+q3_cmd_deg
+q1_encoder_deg
+q2_encoder_deg
+q3_encoder_deg
+p_target_x_mm
+p_target_y_mm
+p_target_z_mm

@@ -1,0 +1,23 @@
+stage: P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL
+mode: p1_real_data_collection_scaffold
+simulation_reference:
+  targets_csv: outputs/pre_imu_p1/p1_targets_pilot.csv
+  schedule_csv: outputs/pre_imu_p1/p1_trial_schedule.csv
+  trajectory_csv: outputs/pre_imu_p1/p1_trajectories.csv
+ros_topics:
+  desired_joint_states: /joint_states
+  actual_encoder_joint_states: /joint_states
+  vive_pose: /vive_tracker/pose
+  active_target_id: /p1_active_target_id
+  active_trial_id: /p1_active_trial_id
+  live_comparison_markers: /p1_vive_comparison
+calibration:
+  input_pairs_csv: outputs/pre_imu_p1/p1_vive_calibration_pairs.csv
+  output_json: outputs/pre_imu_p1/p1_vive_to_base_calibration.json
+logging:
+  raw_comparison_log: outputs/pre_imu_p1/p1_live_comparison_log.csv
+  settled_dataset_csv: outputs/pre_imu_p1/p1_settled_dataset.csv
+  settle_window_s: 0.5
+safety:
+  hardware_commanding_implemented: false
+  note: This scaffold logs and compares data only; it does not send motor commands.

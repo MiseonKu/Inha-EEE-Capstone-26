@@ -1,0 +1,67 @@
+{
+  "format_version": 1,
+  "created_at": "2026-06-14T02:35:28",
+  "scope": "public fitted full-train inference artifacts",
+  "metric_boundary": "not the original 50-seed evaluation object",
+  "device": "NVIDIA GeForce RTX 2070 SUPER, 8192 MiB",
+  "artifacts": {
+    "1link": {
+      "path": "ml/final_model_artifacts/1link_density_aware_local_krr_fulltrain.joblib",
+      "sha256": "e34cba7a7ca2e71cd9aaafe3998f54b1dd1a544fdce3ebf63e2b76436a61a3f8",
+      "dataset_rows": 584,
+      "feature_columns": [
+        "q1_cmd_deg",
+        "q2_cmd_deg",
+        "q1_encoder_deg",
+        "q2_encoder_deg",
+        "p_target_x_mm",
+        "p_target_y_mm",
+        "p_target_z_mm"
+      ],
+      "label_columns": [
+        "p_vive_x_mm",
+        "p_vive_y_mm",
+        "p_vive_z_mm"
+      ],
+      "model": {
+        "kernel": "rbf",
+        "alpha": 0.0003,
+        "gamma": 0.03,
+        "k": 5,
+        "bandwidth_scale": 0.5,
+        "shrink": 1.0
+      },
+      "artifact_scope": "full-train inference artifact, not the original 50-seed evaluation object"
+    },
+    "2link": {
+      "path": "ml/final_model_artifacts/2link_density_aware_local_krr_fulltrain.joblib",
+      "sha256": "39934afd02a69ea26af888fd77798940d8f2acfcbf902513f1412cbc67e2b12e",
+      "dataset_rows": 5000,
+      "feature_columns": [
+        "q1_cmd_deg",
+        "q2_cmd_deg",
+        "q3_cmd_deg",
+        "q1_encoder_deg",
+        "q2_encoder_deg",
+        "q3_encoder_deg",
+        "p_target_x_mm",
+        "p_target_y_mm",
+        "p_target_z_mm"
+      ],
+      "label_columns": [
+        "p_vive_x_mm",
+        "p_vive_y_mm",
+        "p_vive_z_mm"
+      ],
+      "model": {
+        "kernel": "rbf",
+        "alpha": 0.003,
+        "gamma": 0.1,
+        "k": 20,
+        "bandwidth_scale": 0.75,
+        "shrink": 1.0
+      },
+      "artifact_scope": "full-train inference artifact, not the original 50-seed evaluation object"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+target_csv: outputs/pre_imu_p2/p2_targets_pilot.csv
+schedule_csv: outputs/pre_imu_p2/p2_trial_schedule.csv
+trajectory_csv: outputs/pre_imu_p2/p2_trajectories.csv
+settled_dataset_csv: outputs/pre_imu_p2/p2_settled_dataset.csv
+vive_calibration_json: outputs/pre_imu_p2/p2_vive_to_base_calibration.json
+tracker_mount:
+  tracker_frame: vive_tracker
+  tracker_to_tool0_offset_m: [0.0, 0.0, 0.0]
+  offset_verified: false
+logging:
+  settle_window_s: 0.5
+  min_valid_tracker_ratio: 0.95
+  max_alignment_dt_s: 0.2
+safety_note:
+  hardware_commanding_implemented: false
+  note: This package does not send motor commands.

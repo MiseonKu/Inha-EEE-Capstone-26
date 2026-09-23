@@ -1,0 +1,88 @@
+{
+  "generated_at_utc": "2026-05-19T15:54:20.004374+00:00",
+  "stage": "P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL",
+  "workspace_mode": "forward_trimmed_hemisphere",
+  "target_count": 80,
+  "requested_target_count": 80,
+  "repeats": 3,
+  "seed": 101,
+  "configured_candidate_count": 5000,
+  "effective_candidate_count": 5000,
+  "q1_range_deg": [
+    -30.0,
+    30.0
+  ],
+  "q2_range_deg": [
+    45.0,
+    85.0
+  ],
+  "pilot_azimuth_deg": [
+    -30.0,
+    30.0
+  ],
+  "forward_condition": "p_target_base_x_m > 0",
+  "L1_effective_m": 0.274123,
+  "L1_effective_mm": 274.123,
+  "material_preset": "TPU95A_40x12_wall4_topbottom4_infill15_honeycomb",
+  "bin_counts": {
+    "yaw_bin": {
+      "yaw_00": 27,
+      "yaw_01": 26,
+      "yaw_02": 27
+    },
+    "pitch_bin": {
+      "pitch_00": 18,
+      "pitch_01": 18,
+      "pitch_02": 18,
+      "pitch_03": 17,
+      "pitch_04": 9
+    },
+    "height_bin": {
+      "height_00": 9,
+      "height_01": 18,
+      "height_02": 18,
+      "height_03": 18,
+      "height_04": 17
+    },
+    "combined_bin": {
+      "yaw_00|pitch_00|height_00": 3,
+      "yaw_00|pitch_00|height_01": 3,
+      "yaw_00|pitch_01|height_01": 3,
+      "yaw_00|pitch_01|height_02": 3,
+      "yaw_00|pitch_02|height_02": 3,
+      "yaw_00|pitch_02|height_03": 3,
+      "yaw_00|pitch_03|height_03": 3,
+      "yaw_00|pitch_03|height_04": 3,
+      "yaw_00|pitch_04|height_04": 3,
+      "yaw_01|pitch_00|height_00": 3,
+      "yaw_01|pitch_00|height_01": 3,
+      "yaw_01|pitch_01|height_01": 3,
+      "yaw_01|pitch_01|height_02": 3,
+      "yaw_01|pitch_02|height_02": 3,
+      "yaw_01|pitch_02|height_03": 3,
+      "yaw_01|pitch_03|height_03": 3,
+      "yaw_01|pitch_03|height_04": 2,
+      "yaw_01|pitch_04|height_04": 3,
+      "yaw_02|pitch_00|height_00": 3,
+      "yaw_02|pitch_00|height_01": 3,
+      "yaw_02|pitch_01|height_01": 3,
+      "yaw_02|pitch_01|height_02": 3,
+      "yaw_02|pitch_02|height_02": 3,
+      "yaw_02|pitch_02|height_03": 3,
+      "yaw_02|pitch_03|height_03": 3,
+      "yaw_02|pitch_03|height_04": 3,
+      "yaw_02|pitch_04|height_04": 3
+    }
+  },
+  "uniformity": {
+    "selected_combined_bin_count": 27,
+    "selected_combined_bin_min": 2,
+    "selected_combined_bin_max": 3,
+    "selected_combined_bin_max_minus_min": 1,
+    "policy": "Allocate nearly equal counts over occupied yaw|pitch|height bins, then spread-select within each bin."
+  },
+  "label_policy": "Targets are rigid reference coordinates; Vive Tracker settled positions are labels during the real experiment.",
+  "excluded_sensors": [
+    "IMU"
+  ]
+}

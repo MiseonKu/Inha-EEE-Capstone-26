@@ -1,0 +1,30 @@
+stage: P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL
+robot_name: alphaf_p2_two_link
+dof: 3
+active_joints: [q1_base_yaw, q2_shoulder_pitch, q3_elbow_pitch]
+base_frame: base_link
+tool_frame: tool0
+tip_frame: link2_tip
+L1_effective_m: 0.2996
+L1_effective_mm: 299.6
+L2_effective_m: 0.29945
+L2_effective_mm: 299.45
+link1_flexible_bar_length_m: 0.233
+link1_flexible_bar_length_mm: 233.0
+link2_flexible_bar_length_m: 0.215
+link2_flexible_bar_length_mm: 215.0
+link1_nonflex_offset_m: 0.0666
+link1_nonflex_offset_mm: 66.6
+link2_nonflex_offset_m: 0.08445
+link2_nonflex_offset_mm: 84.45
+cross_section_mm: [40.0, 12.0]
+material_preset: TPU95A_40x12_wall4_topbottom4_infill15_honeycomb
+material: TPU95A
+wall_count: 4
+top_bottom_wall_count: 4
+infill_percent: 15
+infill_pattern: honeycomb
+weak_axis_installation: thin_face_bending
+step_file: source_step/2_LINK_SO101_ASSEMBLY.step
+rigid_reference_only: true
+simulate_flexible_bending: false

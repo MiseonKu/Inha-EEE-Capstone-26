@@ -1,0 +1,6 @@
+﻿rank,filter,trial_count,raw_composite_score_mean,raw_composite_score_median,improvement_vs_none_pct,jitter_mean_deg,jitter_std_deg,jitter_median_deg,endpoint_drift_mean_deg,endpoint_drift_std_deg,endpoint_drift_median_deg,mean_abs_angle_mean_deg,mean_abs_angle_std_deg
+1,kalman,100,85.726,84.383,27.643,14.447,1.081,14.189,3.026,2.478,2.194,12.969,1.352
+2,complementary,100,99.830,96.139,15.739,15.511,1.821,15.282,10.189,9.234,8.129,14.201,2.050
+3,mahony,100,108.608,95.537,8.330,20.039,7.479,16.617,3.361,2.501,2.923,14.923,2.965
+4,madgwick,100,113.741,106.804,3.998,20.096,5.376,18.502,4.246,2.368,3.813,15.841,2.905
+5,none,100,118.477,102.577,0.000,17.692,4.895,15.988,19.141,24.895,11.141,15.319,3.593

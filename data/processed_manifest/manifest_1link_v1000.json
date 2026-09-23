@@ -1,0 +1,833 @@
+{
+  "schema_version": "clean_dataset_1link_v1000_single_session_v1",
+  "created_at_utc": "2026-06-01T02:11:30+00:00",
+  "source_root": "data/processed/clean_dataset_1link_v2",
+  "source_roots": [
+    "data/processed/clean_dataset_1link_v2"
+  ],
+  "output_root": "data/processed/clean_dataset_1link_v1000",
+  "dataset_csv": "data/processed/clean_dataset_1link_v1000/dataset.csv",
+  "build_script": "data/build_clean_dataset_1link_v1000.py",
+  "row_policy": "one row per settled target from test-260524-1 supervised_samples.csv",
+  "row_filter": {
+    "quality_flags": "ok",
+    "settling_pass": true,
+    "feature_latest_target_id_prefix": "T",
+    "label_tracker_valid": true,
+    "label_tracker_occluded": false,
+    "requires_target_features": true
+  },
+  "coordinate_policy": {
+    "position_unit": "mm",
+    "target_source": "supervised_samples.csv feature_p_target_tracker_origin_*_mm",
+    "raw_tracker_label_source": "supervised_samples.csv label_tracker_*_mm_relative_vertical_home",
+    "final_label_columns": [
+      "p_vive_x_mm",
+      "p_vive_y_mm",
+      "p_vive_z_mm"
+    ],
+    "label_coordinate_frame": "test-260524-1_vertical_home_relative_tracker_frame_axis_mapped",
+    "axis_mapping_name": "origin_locked_exact_90_candidate_A",
+    "axis_mapping_text": "x=y_tracker, y=-x_tracker, z=z_tracker",
+    "axis_mapping_matrix": [
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "axis_mapping_formula": {
+      "p_vive_x_mm": "label_tracker_y_mm_relative_vertical_home",
+      "p_vive_y_mm": "-label_tracker_x_mm_relative_vertical_home",
+      "p_vive_z_mm": "label_tracker_z_mm_relative_vertical_home"
+    },
+    "frame_alignment_name": "single_v1000_home_orientation_reference_v1",
+    "frame_alignment_text": "Only test-260524-1 is included. The session is its own home-orientation reference, so the source-to-reference rotation is identity and final labels are the fixed 90 degree axis mapping of vertical-home-relative Tracker labels.",
+    "frame_alignment": {
+      "name": "single_v1000_home_orientation_reference_v1",
+      "description": "Only test-260524-1 is included. The session is its own home-orientation reference, so the source-to-reference rotation is identity and final labels are the fixed 90 degree axis mapping of vertical-home-relative Tracker labels.",
+      "reference_source_group": "test-260524-1",
+      "method": "raw vertical-home orientation matrices from tracker_samples.csv r00~r22",
+      "fit_scope": "none; no target/FK labels are used to compute rotations",
+      "target_labels_used_for_rotation": false,
+      "home_orientation_sample_count": 65,
+      "formula_column_vector": {
+        "R_source_to_reference": "R_home_reference @ R_home_source.T",
+        "p_raw_home_aligned_mm": "R_source_to_reference @ p_tracker_vertical_home_mm",
+        "p_vive_mm": "A_axis_mapping @ p_raw_home_aligned_mm"
+      },
+      "formula_numpy_row_vector": "p_vive_mm = p_tracker_vertical_home_mm @ (A_axis_mapping @ R_source_to_reference).T",
+      "translation_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "centroid_shift_applied": false,
+      "vertical_home_origin_preserved": true,
+      "before_alignment": {
+        "rmse_3d_mm": 257.5070672045904,
+        "axis_rmse_mm": {
+          "x": 136.39971896591553,
+          "y": 149.80133486479218,
+          "z": 158.94831360871694
+        },
+        "residual_norm_mm": {
+          "min": 16.75575672233669,
+          "mean": 236.98352807820774,
+          "median": 233.41823467423026,
+          "p95": 396.81786807067596,
+          "max": 492.48589248988355
+        }
+      },
+      "after_alignment": {
+        "rmse_3d_mm": 257.5070672045903,
+        "axis_rmse_mm": {
+          "x": 136.39971896591553,
+          "y": 149.80133486479218,
+          "z": 158.94831360871692
+        },
+        "residual_norm_mm": {
+          "min": 16.75575672233669,
+          "mean": 236.98352807820768,
+          "median": 233.41823467423023,
+          "p95": 396.81786807067584,
+          "max": 492.48589248988344
+        }
+      },
+      "by_source_group": {
+        "test-260524-1": {
+          "name": "single_v1000_home_orientation_reference_v1",
+          "reference_source_group": "test-260524-1",
+          "target_labels_used_for_rotation": false,
+          "fit_rows": 0,
+          "fit_source_columns": [],
+          "fit_target_columns": [],
+          "calibration_source_columns": [
+            "r00",
+            "r01",
+            "r02",
+            "r10",
+            "r11",
+            "r12",
+            "r20",
+            "r21",
+            "r22"
+          ],
+          "calibration_rows": 65,
+          "translation_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "centroid_shift_applied": false,
+          "vertical_home_origin_preserved": true,
+          "source_home_orientation_matrix": [
+            [
+              -0.9059072738762606,
+              -0.41028899127360396,
+              -0.10485682990520977
+            ],
+            [
+              0.04816908722617505,
+              0.14616742604853153,
+              -0.98808644490153
+            ],
+            [
+              0.42072764370062327,
+              -0.9001655554407955,
+              -0.11265088825253754
+            ]
+          ],
+          "reference_home_orientation_matrix": [
+            [
+              -0.9059072738762606,
+              -0.41028899127360396,
+              -0.10485682990520977
+            ],
+            [
+              0.04816908722617505,
+              0.14616742604853153,
+              -0.98808644490153
+            ],
+            [
+              0.42072764370062327,
+              -0.9001655554407955,
+              -0.11265088825253754
+            ]
+          ],
+          "rotation_matrix": [
+            [
+              0.9999999999999998,
+              -3.4182112398644057e-18,
+              1.9187246852788729e-16
+            ],
+            [
+              -3.4182112398644057e-18,
+              1.0,
+              -1.7532213331430275e-17
+            ],
+            [
+              1.9187246852788729e-16,
+              -1.7532213331430275e-17,
+              1.0
+            ]
+          ],
+          "rotation_matrix_direction": "test-260524-1_raw_vertical_home_frame_to_test-260524-1_raw_vertical_home_frame",
+          "axis_mapped_space_rotation_matrix": [
+            [
+              1.0,
+              3.4182112398644057e-18,
+              -1.7532213331430275e-17
+            ],
+            [
+              3.4182112398644057e-18,
+              0.9999999999999998,
+              -1.9187246852788729e-16
+            ],
+            [
+              -1.7532213331430275e-17,
+              -1.9187246852788729e-16,
+              1.0
+            ]
+          ],
+          "raw_tracker_to_label_matrix": [
+            [
+              -3.4182112398644057e-18,
+              1.0,
+              -1.7532213331430275e-17
+            ],
+            [
+              -0.9999999999999998,
+              3.4182112398644057e-18,
+              -1.9187246852788729e-16
+            ],
+            [
+              1.9187246852788729e-16,
+              -1.7532213331430275e-17,
+              1.0
+            ]
+          ],
+          "final_label_formula_column_vector": "p_vive_mm = A_axis_mapping @ R_source_to_reference @ p_tracker_vertical_home_mm",
+          "rotation_angle_deg": 0.0,
+          "determinant": 0.9999999999999998,
+          "orthogonality_error": 7.030562432097212e-16,
+          "home_origin_delta_to_reference_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "home_origin_delta_to_reference_norm_mm": 0.0,
+          "home_pose": {
+            "source_group": "test-260524-1",
+            "tracker_samples_csv": "not_included_raw_tracker_log:data/test-260524-1/tracker_samples.csv",
+            "home_orientation_source_columns": [
+              "r00",
+              "r01",
+              "r02",
+              "r10",
+              "r11",
+              "r12",
+              "r20",
+              "r21",
+              "r22"
+            ],
+            "home_orientation_sample_policy": "mean of first 65 valid, non-occluded r00~r22 samples, orthonormalized as a proper rotation matrix",
+            "home_orientation_sample_count": 65,
+            "home_orientation_matrix": [
+              [
+                -0.9059072738762606,
+                -0.41028899127360396,
+                -0.10485682990520977
+              ],
+              [
+                0.04816908722617505,
+                0.14616742604853153,
+                -0.98808644490153
+              ],
+              [
+                0.42072764370062327,
+                -0.9001655554407955,
+                -0.11265088825253754
+              ]
+            ],
+            "home_orientation_determinant": 0.9999999999999999,
+            "home_orientation_orthogonality_error": 4.006621536612168e-16,
+            "home_orientation_sample_variation_deg": {
+              "mean": 0.0030650720454110493,
+              "max": 0.03076017242662365,
+              "std": 0.007453208572893485
+            },
+            "first_valid_home_orientation_sample": {
+              "sample_index": 0,
+              "t_session_s": 0.5425069999764673,
+              "timestamp_utc": "2026-05-23T14:09:58.350530+00:00",
+              "matrix": [
+                [
+                  -0.9059077501296997,
+                  -0.4102380573749542,
+                  -0.10505221039056778
+                ],
+                [
+                  0.04823976010084152,
+                  0.1464870125055313,
+                  -0.9880356788635254
+                ],
+                [
+                  0.42071861028671265,
+                  -0.9001368284225464,
+                  -0.11291399598121643
+                ]
+              ],
+              "determinant": 1.0000000668895452,
+              "orthogonality_error": 1.315770849333929e-07
+            },
+            "home_origin_mean_mm": [
+              -440.42843112062315,
+              -409.7654816682034,
+              -1558.0941889670721
+            ],
+            "home_origin_std_mm": [
+              0.0064722841021601345,
+              0.004972066977798387,
+              0.006712724573960676
+            ],
+            "home_origin_numeric_row_count": 257868
+          },
+          "before_alignment": {
+            "rmse_3d_mm": 257.5070672045904,
+            "axis_rmse_mm": {
+              "x": 136.39971896591553,
+              "y": 149.80133486479218,
+              "z": 158.94831360871694
+            },
+            "residual_norm_mm": {
+              "min": 16.75575672233669,
+              "mean": 236.98352807820774,
+              "median": 233.41823467423026,
+              "p95": 396.81786807067596,
+              "max": 492.48589248988355
+            }
+          },
+          "after_alignment": {
+            "rmse_3d_mm": 257.5070672045903,
+            "axis_rmse_mm": {
+              "x": 136.39971896591553,
+              "y": 149.80133486479218,
+              "z": 158.94831360871692
+            },
+            "residual_norm_mm": {
+              "min": 16.75575672233669,
+              "mean": 236.98352807820768,
+              "median": 233.41823467423023,
+              "p95": 396.81786807067584,
+              "max": 492.48589248988344
+            }
+          }
+        }
+      },
+      "home_pose_by_source_group": {
+        "test-260524-1": {
+          "source_group": "test-260524-1",
+          "tracker_samples_csv": "not_included_raw_tracker_log:data/test-260524-1/tracker_samples.csv",
+          "home_orientation_source_columns": [
+            "r00",
+            "r01",
+            "r02",
+            "r10",
+            "r11",
+            "r12",
+            "r20",
+            "r21",
+            "r22"
+          ],
+          "home_orientation_sample_policy": "mean of first 65 valid, non-occluded r00~r22 samples, orthonormalized as a proper rotation matrix",
+          "home_orientation_sample_count": 65,
+          "home_orientation_matrix": [
+            [
+              -0.9059072738762606,
+              -0.41028899127360396,
+              -0.10485682990520977
+            ],
+            [
+              0.04816908722617505,
+              0.14616742604853153,
+              -0.98808644490153
+            ],
+            [
+              0.42072764370062327,
+              -0.9001655554407955,
+              -0.11265088825253754
+            ]
+          ],
+          "home_orientation_determinant": 0.9999999999999999,
+          "home_orientation_orthogonality_error": 4.006621536612168e-16,
+          "home_orientation_sample_variation_deg": {
+            "mean": 0.0030650720454110493,
+            "max": 0.03076017242662365,
+            "std": 0.007453208572893485
+          },
+          "first_valid_home_orientation_sample": {
+            "sample_index": 0,
+            "t_session_s": 0.5425069999764673,
+            "timestamp_utc": "2026-05-23T14:09:58.350530+00:00",
+            "matrix": [
+              [
+                -0.9059077501296997,
+                -0.4102380573749542,
+                -0.10505221039056778
+              ],
+              [
+                0.04823976010084152,
+                0.1464870125055313,
+                -0.9880356788635254
+              ],
+              [
+                0.42071861028671265,
+                -0.9001368284225464,
+                -0.11291399598121643
+              ]
+            ],
+            "determinant": 1.0000000668895452,
+            "orthogonality_error": 1.315770849333929e-07
+          },
+          "home_origin_mean_mm": [
+            -440.42843112062315,
+            -409.7654816682034,
+            -1558.0941889670721
+          ],
+          "home_origin_std_mm": [
+            0.0064722841021601345,
+            0.004972066977798387,
+            0.006712724573960676
+          ],
+          "home_origin_numeric_row_count": 257868
+        }
+      },
+      "relative_rotation_between_source_groups": {}
+    },
+    "frame_alignment_by_source_group": {
+      "test-260524-1": {
+        "name": "single_v1000_home_orientation_reference_v1",
+        "reference_source_group": "test-260524-1",
+        "target_labels_used_for_rotation": false,
+        "fit_rows": 0,
+        "fit_source_columns": [],
+        "fit_target_columns": [],
+        "calibration_source_columns": [
+          "r00",
+          "r01",
+          "r02",
+          "r10",
+          "r11",
+          "r12",
+          "r20",
+          "r21",
+          "r22"
+        ],
+        "calibration_rows": 65,
+        "translation_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "centroid_shift_applied": false,
+        "vertical_home_origin_preserved": true,
+        "source_home_orientation_matrix": [
+          [
+            -0.9059072738762606,
+            -0.41028899127360396,
+            -0.10485682990520977
+          ],
+          [
+            0.04816908722617505,
+            0.14616742604853153,
+            -0.98808644490153
+          ],
+          [
+            0.42072764370062327,
+            -0.9001655554407955,
+            -0.11265088825253754
+          ]
+        ],
+        "reference_home_orientation_matrix": [
+          [
+            -0.9059072738762606,
+            -0.41028899127360396,
+            -0.10485682990520977
+          ],
+          [
+            0.04816908722617505,
+            0.14616742604853153,
+            -0.98808644490153
+          ],
+          [
+            0.42072764370062327,
+            -0.9001655554407955,
+            -0.11265088825253754
+          ]
+        ],
+        "rotation_matrix": [
+          [
+            0.9999999999999998,
+            -3.4182112398644057e-18,
+            1.9187246852788729e-16
+          ],
+          [
+            -3.4182112398644057e-18,
+            1.0,
+            -1.7532213331430275e-17
+          ],
+          [
+            1.9187246852788729e-16,
+            -1.7532213331430275e-17,
+            1.0
+          ]
+        ],
+        "rotation_matrix_direction": "test-260524-1_raw_vertical_home_frame_to_test-260524-1_raw_vertical_home_frame",
+        "axis_mapped_space_rotation_matrix": [
+          [
+            1.0,
+            3.4182112398644057e-18,
+            -1.7532213331430275e-17
+          ],
+          [
+            3.4182112398644057e-18,
+            0.9999999999999998,
+            -1.9187246852788729e-16
+          ],
+          [
+            -1.7532213331430275e-17,
+            -1.9187246852788729e-16,
+            1.0
+          ]
+        ],
+        "raw_tracker_to_label_matrix": [
+          [
+            -3.4182112398644057e-18,
+            1.0,
+            -1.7532213331430275e-17
+          ],
+          [
+            -0.9999999999999998,
+            3.4182112398644057e-18,
+            -1.9187246852788729e-16
+          ],
+          [
+            1.9187246852788729e-16,
+            -1.7532213331430275e-17,
+            1.0
+          ]
+        ],
+        "final_label_formula_column_vector": "p_vive_mm = A_axis_mapping @ R_source_to_reference @ p_tracker_vertical_home_mm",
+        "rotation_angle_deg": 0.0,
+        "determinant": 0.9999999999999998,
+        "orthogonality_error": 7.030562432097212e-16,
+        "home_origin_delta_to_reference_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "home_origin_delta_to_reference_norm_mm": 0.0,
+        "home_pose": {
+          "source_group": "test-260524-1",
+          "tracker_samples_csv": "not_included_raw_tracker_log:data/test-260524-1/tracker_samples.csv",
+          "home_orientation_source_columns": [
+            "r00",
+            "r01",
+            "r02",
+            "r10",
+            "r11",
+            "r12",
+            "r20",
+            "r21",
+            "r22"
+          ],
+          "home_orientation_sample_policy": "mean of first 65 valid, non-occluded r00~r22 samples, orthonormalized as a proper rotation matrix",
+          "home_orientation_sample_count": 65,
+          "home_orientation_matrix": [
+            [
+              -0.9059072738762606,
+              -0.41028899127360396,
+              -0.10485682990520977
+            ],
+            [
+              0.04816908722617505,
+              0.14616742604853153,
+              -0.98808644490153
+            ],
+            [
+              0.42072764370062327,
+              -0.9001655554407955,
+              -0.11265088825253754
+            ]
+          ],
+          "home_orientation_determinant": 0.9999999999999999,
+          "home_orientation_orthogonality_error": 4.006621536612168e-16,
+          "home_orientation_sample_variation_deg": {
+            "mean": 0.0030650720454110493,
+            "max": 0.03076017242662365,
+            "std": 0.007453208572893485
+          },
+          "first_valid_home_orientation_sample": {
+            "sample_index": 0,
+            "t_session_s": 0.5425069999764673,
+            "timestamp_utc": "2026-05-23T14:09:58.350530+00:00",
+            "matrix": [
+              [
+                -0.9059077501296997,
+                -0.4102380573749542,
+                -0.10505221039056778
+              ],
+              [
+                0.04823976010084152,
+                0.1464870125055313,
+                -0.9880356788635254
+              ],
+              [
+                0.42071861028671265,
+                -0.9001368284225464,
+                -0.11291399598121643
+              ]
+            ],
+            "determinant": 1.0000000668895452,
+            "orthogonality_error": 1.315770849333929e-07
+          },
+          "home_origin_mean_mm": [
+            -440.42843112062315,
+            -409.7654816682034,
+            -1558.0941889670721
+          ],
+          "home_origin_std_mm": [
+            0.0064722841021601345,
+            0.004972066977798387,
+            0.006712724573960676
+          ],
+          "home_origin_numeric_row_count": 257868
+        },
+        "before_alignment": {
+          "rmse_3d_mm": 257.5070672045904,
+          "axis_rmse_mm": {
+            "x": 136.39971896591553,
+            "y": 149.80133486479218,
+            "z": 158.94831360871694
+          },
+          "residual_norm_mm": {
+            "min": 16.75575672233669,
+            "mean": 236.98352807820774,
+            "median": 233.41823467423026,
+            "p95": 396.81786807067596,
+            "max": 492.48589248988355
+          }
+        },
+        "after_alignment": {
+          "rmse_3d_mm": 257.5070672045903,
+          "axis_rmse_mm": {
+            "x": 136.39971896591553,
+            "y": 149.80133486479218,
+            "z": 158.94831360871692
+          },
+          "residual_norm_mm": {
+            "min": 16.75575672233669,
+            "mean": 236.98352807820768,
+            "median": 233.41823467423023,
+            "p95": 396.81786807067584,
+            "max": 492.48589248988344
+          }
+        }
+      }
+    },
+    "orientation_reference_source_group": "test-260524-1",
+    "final_label_formula": "p_vive_mm = A_axis_mapping @ p_tracker_vertical_home_mm",
+    "centroid_shift_applied": false,
+    "vertical_home_origin_preserved": true,
+    "robot_base_calibrated": false,
+    "tracker_to_base_calibrated": false,
+    "calibration_status_by_source_group": {
+      "test-260524-1": "PARTIAL_VERTICAL_ONLY"
+    },
+    "calibration_mode_by_source_group": {
+      "test-260524-1": "INITIAL_VERTICAL_POSE_WITH_TRACKER_ORIENTATION"
+    },
+    "absolute_error_valid_by_source_group": {
+      "test-260524-1": false
+    }
+  },
+  "feature_columns": [
+    "q1_cmd_deg",
+    "q2_cmd_deg",
+    "q1_encoder_deg",
+    "q2_encoder_deg",
+    "p_target_x_mm",
+    "p_target_y_mm",
+    "p_target_z_mm"
+  ],
+  "label_columns": [
+    "p_vive_x_mm",
+    "p_vive_y_mm",
+    "p_vive_z_mm"
+  ],
+  "metadata_columns": [
+    "source_group",
+    "source_session",
+    "session_id",
+    "target_id",
+    "planned_order_index",
+    "timestamp_utc",
+    "settle_time_s",
+    "settle_start_s",
+    "settle_end_s",
+    "sample_count"
+  ],
+  "quality_columns": [
+    "quality_flags",
+    "settling_pass",
+    "settling_wait_sec",
+    "settling_position_std_mm",
+    "settling_velocity_rms_mm_s",
+    "settling_peak_to_peak_mm",
+    "tracker_valid_ratio",
+    "label_tracker_valid",
+    "label_tracker_occluded"
+  ],
+  "raw_tracker_audit_columns": [
+    "p_tracker_vertical_home_x_mm",
+    "p_tracker_vertical_home_y_mm",
+    "p_tracker_vertical_home_z_mm"
+  ],
+  "axis_mapped_tracker_columns": [
+    "p_tracker_axis_mapped_x_mm",
+    "p_tracker_axis_mapped_y_mm",
+    "p_tracker_axis_mapped_z_mm"
+  ],
+  "alignment_diagnostic_columns": [
+    "target_label_residual_x_mm",
+    "target_label_residual_y_mm",
+    "target_label_residual_z_mm",
+    "target_label_residual_norm_mm"
+  ],
+  "total_clean_rows": 584,
+  "total_supervised_rows": 600,
+  "total_rejected_rows": 16,
+  "session_summaries": [
+    {
+      "source_group": "test-260524-1",
+      "source_root": "not_included_raw_source:data/test-260524-1",
+      "source_session": "rigid2_20260523_140957Z_v1000_1000t",
+      "target_source": "supervised_samples.csv feature_* columns",
+      "supervised_rows_total": 600,
+      "target_feature_T_rows": 600,
+      "clean_rows_added": 584,
+      "rejected_rows_total": 16,
+      "rejected_by_reason": {
+        "quality_flags_not_ok": 16
+      },
+      "excluded_target_ids_by_reason": {
+        "quality_flags_not_ok": [
+          "T190",
+          "T228",
+          "T277",
+          "T456",
+          "T458",
+          "T465",
+          "T490",
+          "T491",
+          "T581",
+          "T622",
+          "T682",
+          "T785",
+          "T889",
+          "T917",
+          "T926",
+          "T995"
+        ]
+      },
+      "calibration_status": "PARTIAL_VERTICAL_ONLY",
+      "calibration_mode": "INITIAL_VERTICAL_POSE_WITH_TRACKER_ORIENTATION",
+      "absolute_error_valid": false,
+      "quality_gate_pass_fail": "fail",
+      "frame_alignment_name": "single_v1000_home_orientation_reference_v1",
+      "alignment_fit_rows": 0,
+      "alignment_calibration_rows": 65,
+      "alignment_rotation_angle_deg": 0.0,
+      "alignment_before_rmse_3d_mm": 257.5070672045904,
+      "alignment_after_rmse_3d_mm": 257.5070672045903,
+      "alignment_after_residual_mean_mm": 236.98352807820768,
+      "home_orientation_sample_count": 65,
+      "home_origin_delta_to_reference_norm_mm": 0.0
+    }
+  ],
+  "source_counts_by_source_group": {
+    "test-260524-1": {
+      "axis_rows": 12090,
+      "excluded_time_windows": 68,
+      "rows_with_alignment_gap": 0,
+      "rows_with_missing_axis": 0,
+      "selected_settled_target_rows": 600,
+      "serial_rows": 20747,
+      "settled_window_fallback_rows": 0,
+      "settled_window_low_valid_ratio_rows": 0,
+      "settled_window_rows": 0,
+      "settled_window_timeout_rows": 0,
+      "settling_drop_count": 0,
+      "settling_gate_rows": 600,
+      "settling_pass_count": 584,
+      "settling_timeout_count": 16,
+      "skipped_excluded_window": 0,
+      "skipped_invalid_tracker": 0,
+      "skipped_targets_without_tracker": 0,
+      "target_rows": 602,
+      "target_windows": 600,
+      "tracker_rows": 258082
+    }
+  },
+  "quality_gate_summary_by_source_group": {
+    "test-260524-1": {
+      "planned_targets": 600,
+      "completed_targets": 600,
+      "clean_training_rows": 584,
+      "settling_pass_count": 584,
+      "settling_timeout_count": 16,
+      "calibration_status": "PARTIAL_VERTICAL_ONLY",
+      "absolute_error_valid": false,
+      "pass_fail": "fail"
+    }
+  },
+  "plot_assets": {
+    "created_at_utc": "2026-06-01T02:11:30+00:00",
+    "plot_policy": "user supplied v1000 plot images copied without regeneration",
+    "source_directory": "redacted_local_plot_asset_directory",
+    "source_zip": "redacted_local_plot_asset_archive",
+    "copied_plots": [
+      {
+        "file": "data/processed/clean_dataset_1link_v1000/plots/1link_v1000_feature_quality.png",
+        "source_kind": "directory",
+        "source_file_name": "1link_v1000_feature_quality.png"
+      },
+      {
+        "file": "data/processed/clean_dataset_1link_v1000/plots/1link_v1000_overview.png",
+        "source_kind": "directory",
+        "source_file_name": "1link_v1000_overview.png"
+      },
+      {
+        "file": "data/processed/clean_dataset_1link_v1000/plots/1link_v1000_target_label_relation.png",
+        "source_kind": "directory",
+        "source_file_name": "1link_v1000_target_label_relation.png"
+      }
+    ],
+    "missing_plots": []
+  },
+  "source_dataset_root": "data/processed/clean_dataset_1link_v2",
+  "source_group": "test-260524-1",
+  "submission_reproduction_status": "runnable from included clean_dataset_1link_v2 using data/build_clean_dataset_1link_v1000.py",
+  "raw_source_policy": "raw tracker logs excluded; package-local rebuild extracts from included clean_dataset_1link_v2"
+}

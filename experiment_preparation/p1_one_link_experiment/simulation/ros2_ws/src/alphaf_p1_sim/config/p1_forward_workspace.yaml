@@ -1,0 +1,27 @@
+stage: P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL
+material_preset: TPU95A_40x12_wall4_topbottom4_infill15_honeycomb
+geometry:
+  L1_effective_m: 0.274123
+  L1_effective_mm: 274.123
+workspace:
+  mode: forward_trimmed_hemisphere
+  frame: base_link
+  center_m: [0.0, 0.0, 0.0]
+  forward_axis: [1.0, 0.0, 0.0]
+  forward_condition: "dot(p - center, forward_axis) > 0"
+  pilot_azimuth_deg: [-30.0, 30.0]
+sampling:
+  target_count: 30
+  repeats: 3
+  seed: 101
+  candidate_count: 5000
+  q1_range_deg: [-30.0, 30.0]
+  q2_range_deg: [45.0, 85.0]
+bins:
+  yaw: 3
+  pitch: 5
+  height: 5
+trajectory:
+  q_basic_rad: [0.0, 1.5707963267948966]
+  move_duration_s: 2.0
+  sample_dt_s: 0.02

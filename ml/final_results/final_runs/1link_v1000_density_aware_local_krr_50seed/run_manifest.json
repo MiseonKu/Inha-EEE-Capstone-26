@@ -1,0 +1,142 @@
+{
+  "script": "ml/final_model_code/evaluate_v2_gpu_density_aware_local_krr.py",
+  "run_name": "20260531_v1000_final_density_aware_local_krr_50seeds",
+  "created_at": "2026-05-31T17:19:36",
+  "gpu_status": {
+    "torch_version": "2.5.1+cu121",
+    "torch_cuda_version": "12.1",
+    "torch_cuda_available": true,
+    "cuda_device_index": 0,
+    "cuda_device_name": "NVIDIA GeForce RTX 2070 SUPER",
+    "cuda_device_capability": [
+      7,
+      5
+    ]
+  },
+  "dataset": {
+    "dataset_root": "data/processed/clean_dataset_1link_v2",
+    "rows": 881,
+    "source_counts": {
+      "test-260524-1": 584,
+      "test-260523-2": 297
+    },
+    "feature_columns": [
+      "q1_cmd_deg",
+      "q2_cmd_deg",
+      "q1_encoder_deg",
+      "q2_encoder_deg",
+      "p_target_x_mm",
+      "p_target_y_mm",
+      "p_target_z_mm"
+    ],
+    "label_columns": [
+      "p_vive_x_mm",
+      "p_vive_y_mm",
+      "p_vive_z_mm"
+    ]
+  },
+  "args": {
+    "dataset_root": "data/processed/clean_dataset_1link_v2",
+    "output_root": "ml/final_results/final_runs/1link_v1000_density_aware_local_krr_50seed",
+    "run_name": "20260531_v1000_final_density_aware_local_krr_50seeds",
+    "seeds": "0-49",
+    "split_mode": "v1000_only_random",
+    "ensemble_selection_metric": "mean",
+    "correction_selection_metric": "mean",
+    "max_ensemble_size": 8,
+    "ks": "5,10,15,20,30,40,60",
+    "bandwidth_scales": "0.5,0.75,1.0,1.5,2.0,3.0",
+    "residual_shrinks": "0.25,0.5,0.75,1.0",
+    "label_blends": "0.1,0.2,0.35,0.5,0.75"
+  },
+  "fixed_candidates": [
+    {
+      "name": "target3_delta05_a1e-4_g0p03",
+      "profile_name": "target3_delta05",
+      "alpha": 0.0001,
+      "gamma": 0.03
+    },
+    {
+      "name": "target3_delta05_a3e-4_g0p03",
+      "profile_name": "target3_delta05",
+      "alpha": 0.0003,
+      "gamma": 0.03
+    },
+    {
+      "name": "target_x3_a1e-4_g0p03",
+      "profile_name": "target_x3",
+      "alpha": 0.0001,
+      "gamma": 0.03
+    },
+    {
+      "name": "trig_x2_a3e-4_g0p05",
+      "profile_name": "trig_x2",
+      "alpha": 0.0003,
+      "gamma": 0.05
+    },
+    {
+      "name": "trig_x2_a1e-4_g0p03",
+      "profile_name": "trig_x2",
+      "alpha": 0.0001,
+      "gamma": 0.03
+    },
+    {
+      "name": "target05_trig2_a3e-4_g0p05",
+      "profile_name": "target05_trig2",
+      "alpha": 0.0003,
+      "gamma": 0.05
+    },
+    {
+      "name": "target_x2_a1e-4_g0p07",
+      "profile_name": "target_x2",
+      "alpha": 0.0001,
+      "gamma": 0.07
+    },
+    {
+      "name": "target_x2_a1e-3_g0p15",
+      "profile_name": "target_x2",
+      "alpha": 0.001,
+      "gamma": 0.15
+    }
+  ],
+  "outputs": {
+    "metrics": "ml/final_results/final_runs/1link_v1000_density_aware_local_krr_50seed/seed_split_metrics.csv",
+    "validation_density_grid": "ml/final_results/final_runs/1link_v1000_density_aware_local_krr_50seed/validation_density_grid.csv",
+    "predictions": "ml/final_results/final_runs/1link_v1000_density_aware_local_krr_50seed/test_predictions.csv",
+    "summary": "ml/final_results/final_runs/1link_v1000_density_aware_local_krr_50seed/repeated_summary.csv"
+  },
+  "best_test_summary": {
+    "split_mode": "v1000_only_random",
+    "model_name": "cuda_density_aware_local_krr",
+    "split": "test",
+    "mean_3d_error_mm_mean": 2.0134719353150548,
+    "mean_3d_error_mm_std": 0.16276925756259952,
+    "mean_3d_error_mm_min": 1.6304162211024353,
+    "mean_3d_error_mm_max": 2.5174859126764884,
+    "median_3d_error_mm_mean": 1.5655620700240687,
+    "median_3d_error_mm_std": 0.16399493015778951,
+    "median_3d_error_mm_min": 1.238906876742152,
+    "median_3d_error_mm_max": 1.9677324087333985,
+    "p90_3d_error_mm_mean": 3.9056175230380834,
+    "p90_3d_error_mm_std": 0.433044313113903,
+    "p90_3d_error_mm_min": 2.9320906572548044,
+    "p90_3d_error_mm_max": 4.831765029554752,
+    "p95_3d_error_mm_mean": 5.000307254840957,
+    "p95_3d_error_mm_std": 0.7045114666884041,
+    "p95_3d_error_mm_min": 3.286674064406279,
+    "p95_3d_error_mm_max": 6.4403730655519835,
+    "max_3d_error_mm_mean": 9.339024991612837,
+    "max_3d_error_mm_std": 3.9678140244731126,
+    "max_3d_error_mm_min": 5.6314148266772674,
+    "max_3d_error_mm_max": 27.15648170093122,
+    "pass_2mm_rate_mean": 0.6268181818181818,
+    "pass_2mm_rate_std": 0.04850392906867098,
+    "pass_2mm_rate_min": 0.5113636363636364,
+    "pass_2mm_rate_max": 0.7159090909090909,
+    "pass_2p5mm_rate_mean": 0.7379545454545454,
+    "pass_2p5mm_rate_std": 0.03654653101175385,
+    "pass_2p5mm_rate_min": 0.6590909090909091,
+    "pass_2p5mm_rate_max": 0.8295454545454546
+  },
+  "privacy_note": "Absolute local paths and nvidia-smi process listings were removed for repository distribution."
+}

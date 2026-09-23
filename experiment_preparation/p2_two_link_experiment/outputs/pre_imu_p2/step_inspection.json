@@ -1,0 +1,9 @@
+{
+  "authoritative_geometry_note": "Do not infer FK length, axes, yaw sign, or pitch sign from STEP.",
+  "generated_at_utc": "2026-05-23T13:00:42.839294+00:00",
+  "mesh_conversion_succeeded": false,
+  "step_exists": true,
+  "step_file": "source_step/2_LINK_SO101_ASSEMBLY.step",
+  "step_measurement_succeeded": false,
+  "warning": "FreeCAD/CadQuery unavailable; STEP dimensions were not measured."
+}

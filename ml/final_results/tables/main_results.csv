@@ -1,0 +1,3 @@
+system,method,mean_3d_error_mm,median_3d_error_mm,p95_3d_error_mm,pass_at_2mm,claim_type
+1-link,Density-aware local Kernel Ridge Regression,2.0135,1.5656,5.0003,62.68%,final paper result / random split
+2-link,Density-aware local Kernel Ridge Regression,0.7100792332664791,0.5193152366702538,1.8215466201838644,96.00%,final paper result / random split

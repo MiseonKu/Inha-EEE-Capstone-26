@@ -1,0 +1,29 @@
+{
+  "systems": {
+    "1link": {
+      "method": "Density-aware local Kernel Ridge Regression",
+      "clean_rows": 584,
+      "mean_3d_error_mm": 2.0135,
+      "median_3d_error_mm": 1.5656,
+      "p95_3d_error_mm": 5.0003,
+      "pass_2mm_rate": 0.6268,
+      "claim_type": "final paper result / random split"
+    },
+    "2link": {
+      "method": "Density-aware local Kernel Ridge Regression",
+      "clean_rows": 5000,
+      "mean_3d_error_mm": 0.7100792332664791,
+      "median_3d_error_mm": 0.5193152366702538,
+      "p95_3d_error_mm": 1.8215466201838644,
+      "pass_2mm_rate": 0.96,
+      "claim_type": "final paper result / random split"
+    }
+  },
+  "optimizer_linkage_smoke": {
+    "scope": "structural linkage check only",
+    "targets": 10,
+    "candidates": 5000,
+    "mean_best_predicted_error_mm": 9.239013958975224,
+    "pass_2mm_rate": 0.0
+  }
+}

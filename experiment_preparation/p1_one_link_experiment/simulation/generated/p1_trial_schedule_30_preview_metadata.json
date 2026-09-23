@@ -1,0 +1,10 @@
+{
+  "generated_at_utc": "2026-05-19T15:15:07.680720+00:00",
+  "target_count": 30,
+  "repeats": 1,
+  "seed": 202,
+  "trial_count": 30,
+  "adjacent_same_target_count": 0,
+  "adjacent_same_bin_count": 0,
+  "policy": "Each cycle contains every target once; bins are interleaved and cycle boundaries are repaired when possible."
+}

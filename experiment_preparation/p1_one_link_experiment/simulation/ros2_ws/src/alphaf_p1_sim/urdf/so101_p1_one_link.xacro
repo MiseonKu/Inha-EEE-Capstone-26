@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="alphaf_p1_so101_one_link">
+  <xacro:property name="L1_effective" value="0.274123"/>
+  <xacro:property name="flexible_bar_length" value="0.233"/>
+  <xacro:property name="bar_width" value="0.040"/>
+  <xacro:property name="bar_thickness" value="0.012"/>
+  <xacro:property name="adapter_offset" value="0.041123"/>
+  <xacro:property name="bar_center_x" value="0.157623"/>
+
+  <material name="alphaf_tpu">
+    <color rgba="0.16 0.58 0.82 1.0"/>
+  </material>
+  <material name="alphaf_frame">
+    <color rgba="0.76 0.76 0.72 1.0"/>
+  </material>
+  <material name="alphaf_marker">
+    <color rgba="0.95 0.58 0.12 1.0"/>
+  </material>
+
+  <link name="p1_model_root"/>
+
+  <joint name="p1_model_root_to_base_link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="p1_model_root"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 -0.0125" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.090 0.090 0.025"/>
+      </geometry>
+      <material name="alphaf_frame"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0125" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.090 0.090 0.025"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -0.0125" rpy="0 0 0"/>
+      <mass value="0.25"/>
+      <inertia ixx="0.0002" ixy="0.0" ixz="0.0" iyy="0.0002" iyz="0.0" izz="0.0002"/>
+    </inertial>
+  </link>
+
+  <link name="yaw_link">
+    <visual>
+      <origin xyz="0 0 0.020" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.040"/>
+      </geometry>
+      <material name="alphaf_frame"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.020" rpy="0 0 0"/>
+      <mass value="0.10"/>
+      <inertia ixx="0.00005" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00005"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_1_yaw" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079632679" upper="1.57079632679" effort="5.0" velocity="2.0"/>
+  </joint>
+
+  <link name="pitch_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry>
+        <cylinder radius="0.022" length="0.065"/>
+      </geometry>
+      <material name="alphaf_frame"/>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.10"/>
+      <inertia ixx="0.00005" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00005"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_2_pitch" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="yaw_link"/>
+    <child link="pitch_link"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.0" upper="1.57079632679" effort="5.0" velocity="2.0"/>
+  </joint>
+
+  <link name="link_1_custom">
+    <visual>
+      <origin xyz="${bar_center_x} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${flexible_bar_length} ${bar_width} ${bar_thickness}"/>
+      </geometry>
+      <material name="alphaf_tpu"/>
+    </visual>
+    <collision>
+      <origin xyz="${bar_center_x} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${flexible_bar_length} ${bar_width} ${bar_thickness}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="${bar_center_x} 0 0" rpy="0 0 0"/>
+      <mass value="0.08"/>
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00045" iyz="0.0" izz="0.00045"/>
+    </inertial>
+  </link>
+
+  <joint name="link_1_custom_mount" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="pitch_link"/>
+    <child link="link_1_custom"/>
+  </joint>
+
+  <link name="link1_tip">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.010"/>
+      </geometry>
+      <material name="alphaf_marker"/>
+    </visual>
+  </link>
+
+  <joint name="link1_tip_joint" type="fixed">
+    <origin xyz="${L1_effective} 0 0" rpy="0 0 0"/>
+    <parent link="link_1_custom"/>
+    <child link="link1_tip"/>
+  </joint>
+
+  <link name="tool0"/>
+
+  <joint name="tool0_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="link1_tip"/>
+    <child link="tool0"/>
+  </joint>
+</robot>

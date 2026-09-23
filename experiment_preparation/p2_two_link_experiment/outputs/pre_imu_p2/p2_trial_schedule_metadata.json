@@ -1,0 +1,20 @@
+{
+  "adjacent_same_target_count": 0,
+  "all_targets_expected_repeats": true,
+  "coordinate_frame": "base_link",
+  "csv_sha256": "683d8bc1300fdd525fd65a0415b4ffb30ef34368560674d1317ce395a8f44464",
+  "geometry": {
+    "L1_effective_m": 0.2996,
+    "L2_effective_m": 0.29945,
+    "link1_flexible_bar_length_m": 0.233,
+    "link2_flexible_bar_length_m": 0.215,
+    "material_preset": "TPU95A_40x12_wall4_topbottom4_infill15_honeycomb"
+  },
+  "label_policy": "schedule contains rigid target references only; Vive Tracker is label/evaluation only",
+  "repeats": 3,
+  "seed": 303,
+  "stage": "P2_TWO_LINK_RIGID_TARGET_VIVE_LABEL",
+  "target_count": 50,
+  "target_generation_version": "p2_forward_targets_v1",
+  "trial_count": 150
+}

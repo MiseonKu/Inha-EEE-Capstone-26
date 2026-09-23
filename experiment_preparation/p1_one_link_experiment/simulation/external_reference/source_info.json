@@ -1,0 +1,24 @@
+{
+  "source_url": "https://github.com/TheRobotStudio/SO-ARM100",
+  "commit": "fda892cba81032c46c40976a48c9ceadbf40a9ca",
+  "default_branch": "main",
+  "license": "Apache-2.0",
+  "inspected_files": [
+    "Simulation/README.md",
+    "Simulation/SO101/README.md",
+    "Simulation/SO101/so101_new_calib.urdf",
+    "Simulation/SO101/so101_old_calib.urdf",
+    "Simulation/SO101/assets/*.stl",
+    "Simulation/SO101/scene.xml",
+    "Simulation/SO101/joints_properties.xml",
+    "LICENSE"
+  ],
+  "copied_files": [],
+  "reference_use": [
+    "SO101 simulation folder layout",
+    "upstream link and joint naming style",
+    "availability of URDF, MJCF, and STL assets",
+    "license and attribution"
+  ],
+  "local_model_policy": "Clean P1 URDF/Xacro generated from AlphaF authoritative geometry values."
+}

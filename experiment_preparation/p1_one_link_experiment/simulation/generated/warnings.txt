@@ -1,0 +1,11 @@
+CAD STEP inspection warning:
+- The local STEP file was copied into simulation/source_step for reference.
+- No CAD kernel or mesh conversion tool was available in the Python environment checked here.
+- The P1 URDF therefore uses simple box visual/collision geometry instead of a converted mesh.
+- The STEP file is not used as kinematic authority.
+
+ROS dependency warning:
+- gazebo_ros was not installed during initial package detection.
+- ros_gz_sim was installed during initial package detection.
+- joint_state_publisher and joint_state_publisher_gui were not installed, so launch files include a simulation-only P1 joint-state fallback.
+- RViz and Gazebo launched locally, but Gazebo printed EGL/DRI graphics warnings.

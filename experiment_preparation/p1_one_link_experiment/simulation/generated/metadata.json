@@ -1,0 +1,29 @@
+{
+  "stage": "P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL",
+  "generated_assets": [
+    "outputs/pre_imu_p1/p1_targets_pilot.csv",
+    "outputs/pre_imu_p1/p1_targets_pilot_metadata.json",
+    "outputs/pre_imu_p1/p1_trial_schedule.csv",
+    "outputs/pre_imu_p1/p1_trial_schedule_metadata.json",
+    "outputs/pre_imu_p1/p1_trajectories.csv",
+    "simulation/ros2_ws/src/alphaf_p1_sim/urdf/so101_p1_one_link.xacro",
+    "simulation/ros2_ws/src/alphaf_p1_sim/urdf/so101_p1_one_link.urdf"
+  ],
+  "geometry": {
+    "L1_effective_m": 0.274123,
+    "flexible_bar_length_m": 0.233,
+    "adapter_offset_m": 0.041123,
+    "collision_box_size_m": [0.233, 0.04, 0.012],
+    "collision_box_origin_m": [0.157623, 0.0, 0.0]
+  },
+  "source_step": {
+    "path": "simulation/source_step/SO101 Assembly-link11.step",
+    "copied_from": "$HOME/Documents/2026 알파프/SO101 Assembly-link11.step",
+    "purpose": "visual geometry reference only"
+  },
+  "external_reference": {
+    "source_url": "https://github.com/TheRobotStudio/SO-ARM100",
+    "commit": "fda892cba81032c46c40976a48c9ceadbf40a9ca",
+    "license": "Apache-2.0"
+  }
+}

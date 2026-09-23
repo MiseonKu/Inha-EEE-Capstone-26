@@ -1,0 +1,2 @@
+﻿"frame","unit_position","unit_angle","unit_error","synthetic_only","physical_claim","rows_processed","original_label_target_error_mm_mean","original_label_target_error_mm_min","original_label_target_error_mm_max","best_predicted_error_mm_mean","best_predicted_error_mm_min","best_predicted_error_mm_max","note"
+"tracker_vertical_home_relative_vive_frame","mm","deg and rad","mm","true","false","881","223.599758","9.483534","492.485892","95.89921","0.372282","283.175669","Optimizer outputs are model-predicted candidates only. They are not physical robot validation results."

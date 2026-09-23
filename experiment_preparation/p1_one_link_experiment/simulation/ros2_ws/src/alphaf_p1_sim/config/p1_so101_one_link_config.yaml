@@ -1,0 +1,36 @@
+stage: P1_ONE_LINK_RIGID_TARGET_VIVE_LABEL
+robot:
+  name: alphaf_p1_so101_one_link
+  dof: 2
+  active_joints:
+    - joint_1_yaw
+    - joint_2_pitch
+  base_frame: base_link
+  tip_frame: link1_tip
+  tool_frame: tool0
+geometry:
+  L1_effective_mm: 274.123
+  L1_effective_m: 0.274123
+  flexible_bar_length_mm: 233.0
+  flexible_bar_length_m: 0.233
+  adapter_offset_mm: 41.123
+  adapter_offset_m: 0.041123
+  collision_box_size_m: [0.233, 0.040, 0.012]
+  collision_box_origin_m: [0.157623, 0.0, 0.0]
+material:
+  preset: TPU95A_40x12_wall4_topbottom4_infill15_honeycomb
+  material: TPU 95A
+  cross_section_mm: [40.0, 12.0]
+  wall_count: 4
+  top_bottom_wall_count: 4
+  infill_percent: 15
+  infill_pattern: honeycomb
+  weak_axis_installation: thin-face bending direction
+basic_pose:
+  q_basic_rad: [0.0, 1.5707963267948966]
+  q_basic_meaning: q1 forward, q2 vertical
+notes:
+  fk_length_authority: L1_effective_m
+  non_fk_visual_reference_mm: 145.25
+  rigid_reference_only: true
+  simulate_flexible_tpu_bending: false
